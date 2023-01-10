@@ -2,12 +2,17 @@ package com.br.distributor.model;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Objects;
 
 @Entity
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,13 +21,5 @@ public class Product {
     private Long id;
     @Getter @Setter
     private String name;
-
-    public Product() {
-    }
-
-    public Product(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 
 }
