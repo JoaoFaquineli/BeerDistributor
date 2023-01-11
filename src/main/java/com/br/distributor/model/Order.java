@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-@Entity(name = "Order")
-@Table(name = "tb_orders")
+@Entity(name = "TBOrder")
+@Table(name = "TBOrder")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor

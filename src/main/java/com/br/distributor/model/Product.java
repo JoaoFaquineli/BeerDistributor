@@ -11,6 +11,7 @@ import java.util.Objects;
 
 @Entity
 @Getter
+@Table(name = "TBProducts")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {

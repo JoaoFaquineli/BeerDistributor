@@ -1,0 +1,3 @@
+INSERT INTO TBCUSTOMER(id,name, creation_date) VALUES ("1","TOTONTIM", "2023-01-01")
+INSERT INTO TBCUSTOMER(id,name, creationDate) VALUES ("2","BERNABREJAS","2023-01-01")
+
