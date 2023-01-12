@@ -30,4 +30,8 @@ public class Order {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
+    public Order(List<Product> products, Customer customer) {
+        this.products = products;
+        this.customer = customer;
+    }
 }

@@ -26,5 +26,6 @@ public class Customer {
     @OneToMany
     private List<Product> stock;
 
+
     private LocalDateTime creationDate = LocalDateTime.now();
 }
