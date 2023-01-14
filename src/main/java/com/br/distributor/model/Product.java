@@ -14,7 +14,7 @@ import java.util.Objects;
 @Table(name = "TBProducts")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public abstract class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)

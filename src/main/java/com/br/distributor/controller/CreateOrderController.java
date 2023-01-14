@@ -5,12 +5,11 @@ import com.br.distributor.form.OrderForm;
 import com.br.distributor.model.Order;
 import com.br.distributor.repository.CustomerRepository;
 import com.br.distributor.repository.OrderRepository;
+import com.br.distributor.repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
@@ -24,9 +23,27 @@ public class CreateOrderController {
     private OrderRepository orderRepository;
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private ProductsRepository productsRepository;
+
+    @GetMapping
+    public List<OrderDto> list(){
+        List<Order> orders = orderRepository.findAll();
+        return OrderDto.orderConverter(orders);
+    }//returning [{"id":null},{"id":null},{"id":null}]
+
+    /*                                     \/ WORKING!
+    *  @GetMapping
+    public List<Order> list(){
+        List<Order> orders = orderRepository.findAll();
+        return orders;
+    }
+    * */
+
     @PostMapping
     public ResponseEntity<OrderDto> createOrder(@RequestBody OrderForm orderForm, UriComponentsBuilder uriBuilder) {
-        Order order = orderForm.convert(customerRepository);
+        Order order = orderForm.convert(customerRepository,productsRepository);
         orderRepository.save(order);
         URI uri = uriBuilder.path("/order/{id}").buildAndExpand(order.getId()).toUri();
         return ResponseEntity.created(uri).body(new OrderDto(order));

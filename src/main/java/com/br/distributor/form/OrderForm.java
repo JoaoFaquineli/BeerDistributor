@@ -4,6 +4,7 @@ import com.br.distributor.model.Customer;
 import com.br.distributor.model.Order;
 import com.br.distributor.model.Product;
 import com.br.distributor.repository.CustomerRepository;
+import com.br.distributor.repository.ProductsRepository;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,19 +15,21 @@ import java.util.List;
 public class OrderForm {
 
     private List<String> stringProducts;
+
+    private Long productId;//just for test, check Note.
     private Long customerId;
-    public Order convert(CustomerRepository customerI) {
+    public Order convert(CustomerRepository customerI, ProductsRepository product) {
         Customer customer = customerI.getById(customerId);
-        List<Product> products = createProductsArray(stringProducts);
+        List<Product> products = new ArrayList<>();
+        Product productOne = product.getById(productId);//just to check if the order creates, need to create a logic to insert a Product List in JSON
+        products.add(productOne);
+        customer.updateStock();//needs implementation
         return new Order(products,customer);
     }
 
-    private List<Product> createProductsArray(List<String> stringProducts) {
-        List<Product> products = new ArrayList<>();
-        for (String stringProduct : stringProducts
-             ) {
-                products.add(new Product(stringProduct));
-        }
-        return products;
-    }
 }
+
+/* Note
+*  Need to check how to insert a Product ArrayList in JSON.
+*
+* */

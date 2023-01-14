@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
 public class OrderDto {
     private Long id;
 

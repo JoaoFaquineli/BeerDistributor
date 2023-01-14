@@ -28,4 +28,9 @@ public class Customer {
 
 
     private LocalDateTime creationDate = LocalDateTime.now();
+
+    public void updateStock()
+    {
+
+    }
 }
