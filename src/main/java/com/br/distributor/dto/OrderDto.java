@@ -1,8 +1,6 @@
 package com.br.distributor.dto;
 
 import com.br.distributor.model.Order;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

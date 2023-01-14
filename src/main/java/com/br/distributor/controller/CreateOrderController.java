@@ -7,7 +7,6 @@ import com.br.distributor.repository.CustomerRepository;
 import com.br.distributor.repository.OrderRepository;
 import com.br.distributor.repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;

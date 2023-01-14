@@ -7,8 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Objects;
-
 @Entity
 @Getter
 @Table(name = "TBProducts")
@@ -17,7 +15,7 @@ import java.util.Objects;
 public abstract class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Setter
     private String name;
