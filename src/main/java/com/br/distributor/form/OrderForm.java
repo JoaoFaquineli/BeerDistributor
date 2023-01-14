@@ -23,7 +23,7 @@ public class OrderForm {
         List<Product> products = new ArrayList<>();
         Product productOne = product.getById(productId);//just to check if the order creates, need to create a logic to insert a Product List in JSON
         products.add(productOne);
-        customer.updateStock();//needs implementation
+        //customer.updateStock();//needs implementation
         return new Order(products,customer);
     }
 

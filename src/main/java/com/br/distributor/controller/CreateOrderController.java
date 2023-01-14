@@ -31,15 +31,7 @@ public class CreateOrderController {
     public List<OrderDto> list(){
         List<Order> orders = orderRepository.findAll();
         return OrderDto.orderConverter(orders);
-    }//returning [{"id":null},{"id":null},{"id":null}]
-
-    /*                                     \/ WORKING!
-    *  @GetMapping
-    public List<Order> list(){
-        List<Order> orders = orderRepository.findAll();
-        return orders;
     }
-    * */
 
     @PostMapping
     public ResponseEntity<OrderDto> createOrder(@RequestBody OrderForm orderForm, UriComponentsBuilder uriBuilder) {

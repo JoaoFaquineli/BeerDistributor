@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Beer extends Product{
+public class Beer extends Product  {
 
     @Setter
     private String brand;

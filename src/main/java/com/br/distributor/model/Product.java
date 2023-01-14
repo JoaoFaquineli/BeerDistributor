@@ -18,12 +18,12 @@ public abstract class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    @Getter
     private Long id;
-    @Getter @Setter
+    @Setter
     private String name;
 
     public Product(String stringProduct) {
+
         this.name = stringProduct;
     }
 }

@@ -14,9 +14,10 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Getter
 public class OrderDto {
-    private Long id;
+    private Long order_id;
 
     public OrderDto(Order order) {
+        this.order_id = order.getId();
     }
 
     public static List<OrderDto> orderConverter(List<Order> orders)
