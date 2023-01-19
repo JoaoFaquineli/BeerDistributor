@@ -5,6 +5,7 @@ import com.br.distributor.repository.CustomerRepository;
 import com.br.distributor.repository.ProductsRepository;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,17 +21,21 @@ public class OrderForm {
         Customer customer = customerI.getReferenceById(customerId);
         List<Product> products = new ArrayList<>();// this probably should not be a mother type (Product)
         Product productOne = product.getReferenceById(productId);//just to check if the order creates, need to create a logic to insert a Product List in JSON
+
         if(productOne instanceof Beer)
         {
             Beer beerProduct = new Beer();
-            products.add(new BeerAssignedProduct(beerProduct));
+            products.add(new AssignedProduct());
 
         }
         //customer.updateStock();//needs implementation
         return new Order(products,customer);
     }
 
+
+
 }
+
 
 /* Note
 *  Need to check how to insert a Product ArrayList in JSON.

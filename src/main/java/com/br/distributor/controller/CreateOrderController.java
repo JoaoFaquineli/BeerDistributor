@@ -7,6 +7,7 @@ import com.br.distributor.repository.CustomerRepository;
 import com.br.distributor.repository.OrderRepository;
 import com.br.distributor.repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -39,8 +40,5 @@ public class CreateOrderController {
         URI uri = uriBuilder.path("/order/{id}").buildAndExpand(order.getId()).toUri();
         return ResponseEntity.created(uri).body(new OrderDto(order));
     }
-
-
-
 
 }

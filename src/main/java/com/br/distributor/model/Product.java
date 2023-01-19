@@ -9,6 +9,7 @@ import lombok.Setter;
 
 @Entity
 @Getter
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "TBProducts")
 @NoArgsConstructor
 @AllArgsConstructor
