@@ -22,12 +22,6 @@ public class OrderForm {
         List<Product> products = new ArrayList<>();// this probably should not be a mother type (Product)
         Product productOne = product.getReferenceById(productId);//just to check if the order creates, need to create a logic to insert a Product List in JSON
 
-        if(productOne instanceof Beer)
-        {
-            Beer beerProduct = new Beer();
-            products.add(new AssignedProduct());
-
-        }
         //customer.updateStock();//needs implementation
         return new Order(products,customer);
     }
